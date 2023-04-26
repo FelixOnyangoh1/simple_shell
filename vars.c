@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * is_chain - checks whether the current character in buffer is a chain delimeter
+ * is_chain - checks the current char in buffer is a chain delimeter
  * @info: parameter struct
  * @buf:  character buffer
  * @p: the address of the current psn in buffer
@@ -36,7 +36,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 }
 
 /**
- * check_chain - tests that ought to continue chaining, based on previous status
+ * check_chain - tests-continue chaining, based on previous status
  * @info: parameter struct
  * @buf: character buffer
  * @p: the address of the current psn in buffer
