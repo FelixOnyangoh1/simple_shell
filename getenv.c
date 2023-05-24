@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * get_environ -this returns the string array copy of the environ
- * @info:the Structure contains potential arguments. for maintaining
- *          constant function prototype.
- * Return: returns Always 0
+ * get_environ -this returns the str arr copy of environ
+ * @info:the struct has potential arg. for maintaining
+ *          constant func proto-type.
+ * Return: returns 0 all time.
  */
 char **get_environ(info_t *info)
 {
@@ -18,16 +18,16 @@ char **get_environ(info_t *info)
 }
 
 /**
- * _unsetenv -this Removes an environ variable
- * @info: this Structure contains potential arguments. Used in maintaining
- *        constant function prototype.
- *  Return: returns 1 on delete, 0 otherwise
+ * _unsetenv -this emove an environ var.
+ * @info: Struct has potential args,for maintaining
+ *        constant function prot-otype.
+ *  Return: returns 1- delete, 0-otherwise
  * @var: string env var property
  */
 int _unsetenv(info_t *info, char *var)
 {
 	list_t *node = info->env;
-	size_t i = 0;
+	size_t k = 0;
 	char *p;
 
 	if (!node || !var)
@@ -39,7 +39,7 @@ int _unsetenv(info_t *info, char *var)
 		if (p && *p == '=')
 		{
 			info->env_changed = delete_node_at_index(&(info->env), i);
-			i = 0;
+			k = 0;
 			node = info->env;
 			continue;
 		}
@@ -50,13 +50,13 @@ int _unsetenv(info_t *info, char *var)
 }
 
 /**
- * _setenv -this Initializes new environment variable,
- *             or modify an existing one
- * @info:this Structure contains potential arguments. Used for maintaining
- *        constant function prototype.
- * @var: string env var property
- * @value: string env var value
- *  Return:returns Always 0
+ * _setenv -this Init new envi var.
+ *             or change existing 1
+ * @info:this struct contains potential args for maintaining
+ *        constant func proto-type.
+ * @var: str env var property
+ * @value: str env var value
+ *  Return:returns 0 all time
  */
 int _setenv(info_t *info, char *var, char *value)
 {

@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _myhistory - shows history list, 1 command by line, preceded
- *              with line numbers, starting at 0.
- * @info: Structure contains potential arguments. Used for maintaining
- *        constant function prototype.
- *  Return: return always 0
+ * _myhistory - shows histry list, 1 cmd by line- preceded
+ *              with line n0s, beginning from 0.
+ * @info: Struct has potential args, used for maintaining
+ *        constant funct proto-type.
+ *  Return: return 0 always.
  */
 int _myhistory(info_t *info)
 {
@@ -14,11 +14,11 @@ int _myhistory(info_t *info)
 }
 
 /**
- * unset_alias - set alias- string
- * @info: the parameter struct
- * @str: string alias
+ * unset_alias - set alias- str.
+ * @info: the para-meter struct.
+ * @str: str alias.
  *
- * Return:returns always 0 on success, 1 on error
+ * Return:returns always 0- success, 1- error
  */
 int unset_alias(info_t *info, char *str)
 {
@@ -37,11 +37,11 @@ int unset_alias(info_t *info, char *str)
 }
 
 /**
- * set_alias - set alias- string
- * @info:the parameter struct
- * @str: the string alias
+ * set_alias - set alias- str.
+ * @info:the p.meter structure.
+ * @str: str alias.
  *
- * Return:returns Always 0 on success, 1 on error
+ * Return:returns always 0- success, 1- error
  */
 int set_alias(info_t *info, char *str)
 {
@@ -58,10 +58,10 @@ int set_alias(info_t *info, char *str)
 }
 
 /**
- * print_alias -this prints an alias string
- * @node:  alias node
+ * print_alias -this prints out alias str.
+ * @node:  alias nod.
  *
- * Return:returns Always 0 on success, 1 on error
+ * Return:returns always 0 - success, 1- error.
  */
 int print_alias(list_t *node)
 {
@@ -81,14 +81,14 @@ int print_alias(list_t *node)
 }
 
 /**
- * _myalias - mimicing the alias builtin (man alias)
- * @info: Structure contains potential arguments. Used in maintaining
- *          constant function prototype.
- *  Return: returns Always 0
+ * _myalias - copies alias builtin man alias.
+ * @info: Struct has potential args, used in maintaining
+ *          constant funct proto-type.
+ *  Return: returns  0.
  */
 int _myalias(info_t *info)
 {
-	int i = 0;
+	int x = 0;
 	char *p = NULL;
 	list_t *node = NULL;
 
@@ -102,7 +102,7 @@ int _myalias(info_t *info)
 		}
 		return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (x = 1; info->argv[i]; x++)
 	{
 		p = _strchr(info->argv[i], '=');
 		if (p)

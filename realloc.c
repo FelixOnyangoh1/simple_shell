@@ -1,24 +1,24 @@
 #include "shell.h"
 
 /**
- * _memset -this fills mem with a constant byte
- * @s:  pointer to the mem area
- * @b:  byte to fill *s with
- * @n:  amount of bytes to be filled
- * Return: (s) a pointer to the memory area s
+ * _memset - fils mem wit a constant bte
+ * @s:  ptr to the mem location
+ * @b:  bte to fil *s wit
+ * @n:  amt of byte to be filed
+ * Return: (s) a ptr to the mem location s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	unsigned int k;
 
-	for (i = 0; i < n; i++)
-		s[i] = b;
+	for (k = 0; k < n; k++)
+		s[k] = b;
 	return (s);
 }
 
 /**
- * ffree - frees a string of strings
- * @pp: string of strings
+ * ffree - free a str of strs
+ * @pp: str of strs
  */
 void ffree(char **pp)
 {
@@ -32,12 +32,12 @@ void ffree(char **pp)
 }
 
 /**
- * _realloc - reallocates  block of mem
- * @ptr: the pointer to previous malloc'ated block
- * @old_size:the byte size of previous block
- * @new_size:the byte size of new block
+ * _realloc - re-allocates  blk of mem
+ * @ptr:  ptr to last malloc ated blk
+ * @old_size:the bytte siize of last blk
+ * @new_size:the bytte sizze of new blk
  *
- * Return: returns pointer to the old block.
+ * Return:  ptr to the old blk
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {

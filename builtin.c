@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _myexit - exit shell
- * @info: Structure contains potential arguments, for maintaining
- * constant function prototype.
- * Return: exit on a given exit status
+ * _myexit - exit shell.
+ * @info: Struct contains potential arg, for maintaining
+ * constant funct proto-type.
+ * Return: exit on given ext statas.
  * (0) if info.argv[0] != "exit"
  */
 int _myexit(info_t *info)
@@ -30,10 +30,10 @@ int _myexit(info_t *info)
 }
 
 /**
- * _mycd - changes current directory of the process
- * @info: Structure contains potential arguments, for maintaining
- * constant function prototype.
- * Return:returns Always 0
+ * _mycd - alters current dir of the process.
+ * @info: Struct has potential arg,for maintaining
+ * constant funct proto-type.
+ * Return:returns always 0.
  */
 int _mycd(info_t *info)
 {
@@ -80,10 +80,10 @@ int _mycd(info_t *info)
 }
 
 /**
- * _myhelp - alters the current directory of the process
- * @info: Structure contains potential arguments. Used for maintaining
- * constant function prototype.
- * Return: returns always 0
+ * _myhelp - alters current dir of the process.
+ * @info: Struct has potential args, used for maintaining
+ * constant funct proto-type.
+ * Return: returns always 0.
  */
 int _myhelp(info_t *info)
 {

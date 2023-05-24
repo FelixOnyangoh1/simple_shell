@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _myenv - print present environment
- * @info: Structure contains potential arguments. Used in maintaining
- *          constant function prototype.
- * Return: returns Always 0
+ * _myenv - print present environ.
+ * @info: Struct has arg for maintaining
+ *          constant funct proto-type.
+ * Return: returns 0 always.
  */
 int _myenv(info_t *info)
 {
@@ -13,11 +13,11 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - acquires value of an env variable
- * @info: Structure contains potential arguments. Used in maintaining
- * @name: the env var name
+ * _getenv - acquires val of an env variable.
+ * @info: struct has potential args, for  maintaining
+ * @name: the environ variable name
  *
- * Return: the value
+ * Return: val
  */
 char *_getenv(info_t *info, const char *name)
 {
@@ -35,11 +35,11 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Init  new env variable,
+ * _mysetenv - Init  new env var,
  *             or modify an existing one
- * @info: Structure contains potential arguments. Used in maintaining
- *        constant function prototype.
- *  Return: returns Always 0
+ * @info: Struct has potential args, for maintaining
+ *        constant funct proto-type.
+ *  Return: returning 0 always,
  */
 int _mysetenv(info_t *info)
 {
@@ -61,24 +61,24 @@ int _mysetenv(info_t *info)
  */
 int _myunsetenv(info_t *info)
 {
-	int i;
+	int k;
 
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= info->argc; i++)
+	for (k = 1; i <= info->argc; k++)
 		_unsetenv(info, info->argv[i]);
 
 	return (0);
 }
 
 /**
- * populate_env_list - gets env linked list
- * @info: Structure contains potential arguments. Used in maintaining
- *          constant function prototype.
- * Return: returns Always 0
+ * populate_env_list - gets envi linked_list,
+ * @info: Struct has ptl args,for maintaining
+ *          constant func proto-type.
+ * Return: returning 0 always.
  */
 int populate_env_list(info_t *info)
 {

@@ -1,17 +1,17 @@
 #include "shell.h"
 
 /**
- * input_buf -this buffers chained commands
- * @info: the parameter struct
- * @buf: address of buffer
- * @len:the address of len var
+ * input_buf -this buffer chain of cmds
+ * @info: the para-meter struct
+ * @buf: addr to buffer
+ * @len:the addr of length vari
  *
  * Return: returnsbytes read
  */
 ssize_t input_buf(info_t *info, char **buf, size_t *len)
 {
-	ssize_t r = 0;
-	size_t len_p = 0;
+	ssize_t a = 0;
+	size_t len_y = 0;
 
 	if (!*len) /* if nothing left in the buffer, fill it */
 	{
@@ -20,33 +20,33 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 		*buf = NULL;
 		signal(SIGINT, sigintHandler);
 #if USE_GETLINE
-		r = getline(buf, &len_p, stdin);
+		a = getline(buf, &len_y, stdin);
 #else
-		r = _getline(info, buf, &len_p);
+		a = _getline(info, buf, &len_y);
 #endif
-		if (r > 0)
+		if (a > 0)
 		{
-			if ((*buf)[r - 1] == '\n')
+			if ((*buf)[a - 1] == '\n')
 			{
-				(*buf)[r - 1] = '\0'; /* remove trailing newline */
-				r--;
+				(*buf)[a - 1] = '\0'; /* remove trailing newline */
+				a--;
 			}
 			info->linecount_flag = 1;
 			remove_comments(*buf);
 			build_history_list(info, *buf, info->histcount++);
 			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
-				*len = r;
+				*len = a;
 				info->cmd_buf = buf;
 			}
 		}
 	}
-	return (r);
+	return (a);
 }
 
 /**
- * get_input -this  gets a line minus the newline
- * @info:the  parameter struct
+ * get_input -this gets a line- the nl
+ * @info:the  para-meter struct
  *
  * Return: returns bytes read
  */
@@ -54,17 +54,17 @@ ssize_t get_input(info_t *info)
 {
 	static char *buf; /* the ';' command chain buffer */
 	static size_t i, j, len;
-	ssize_t r = 0;
-	char **buf_p = &(info->arg), *p;
+	ssize_t a = 0;
+	char **buf_y = &(info->arg), *p;
 
 	_putchar(BUF_FLUSH);
-	r = input_buf(info, &buf, &len);
-	if (r == -1) /* EOF */
+	a = input_buf(info, &buf, &len);
+	if (a == -1) /* EOF */
 		return (-1);
-	if (len) /* we have commands left in the chain buffer */
+	if (len) /* have cmds left in the chain buffer */
 	{
 		j = i; /* init new iterator to current buf position */
-		p = buf + i; /* get pointer for return */
+		y = buf + i; /* get pointer for return */
 
 		check_chain(info, buf, &j, i, len);
 		while (j < len) /* iterate to semicolon or end */
@@ -90,8 +90,8 @@ ssize_t get_input(info_t *info)
 }
 
 /**
- * read_buf -this reads a buffer
- * @info:the parameter struct
+ * read_buf -this reading of  a buffer
+ * @info:the para-meter struct
  * @buf:this is buffer
  * @i:this is size
  *
@@ -99,21 +99,21 @@ ssize_t get_input(info_t *info)
  */
 ssize_t read_buf(info_t *info, char *buf, size_t *i)
 {
-	ssize_t r = 0;
+	ssize_t a = 0;
 
 	if (*i)
 		return (0);
-	r = read(info->readfd, buf, READ_BUF_SIZE);
-	if (r >= 0)
-		*i = r;
-	return (r);
+	a = read(info->readfd, buf, READ_BUF_SIZE);
+	if (a >= 0)
+		*i = a;
+	return (a);
 }
 
 /**
- * _getline -this gets the next line of input from STDIN
- * @info:the parameter struct
- * @ptr:the address of pointer to buffer, preallocated or NULL
- * @length:the  size of preallocated ptr buffer if not NULL
+ * _getline -acquires the next line of input from STDIN
+ * @info:the para-meter struct
+ * @ptr: addr of ptr to buffer, pre-allocated or NULL
+ * @length:the  qty of pr-eallocated ptr buffer if not NULL
  *
  * Return: returns s
  */
@@ -122,7 +122,7 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	static char buf[READ_BUF_SIZE];
 	static size_t i, len;
 	size_t k;
-	ssize_t r = 0, s = 0;
+	ssize_t a = 0, s = 0;
 	char *p = NULL, *new_p = NULL, *c;
 
 	p = *ptr;
@@ -131,8 +131,8 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	if (i == len)
 		i = len = 0;
 
-	r = read_buf(info, buf, &len);
-	if (r == -1 || (r == 0 && len == 0))
+	a = read_buf(info, buf, &len);
+	if (a == -1 || (a == 0 && len == 0))
 		return (-1);
 
 	c = _strchr(buf + i, '\n');
@@ -157,8 +157,8 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * sigintHandler -the  blocks ctrl-C
- * @sig_num: signal number
+ * sigintHandler -the  blck ctrl-C
+ * @sig_num: signal n0
  *
  * Return: returns void
  */

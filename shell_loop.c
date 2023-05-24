@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * hsh - the main shell loop
- * @info: parameter and return info struct
- * @av:  argument vector from main()
+ * hsh - the most shel lop
+ * @info: para-meter and return detail struct
+ * @av:  arg vect from the main()
  *
- * Return: returns 0 on success, 1 on error, or error code
+ * Return:  0- success, 1- error, / err code
  */
 int hsh(info_t *info, char **av)
 {
@@ -44,17 +44,17 @@ int hsh(info_t *info, char **av)
 }
 
 /**
- * find_builtin - locates a builtin cmd
- * @info: parameter & return info struct
+ * find_builtin - locates a built-in cmd
+ * @info: para-meter & return info struct
  *
- * Return: -returns 1 if builtin not found,
- * 0  builtin executed successfully,
- * 1  builtin found but not successful,
- * 2  builtin signals exit()
+ * Return: - 1 when builtin not found,
+ * 0  built-in executed successfully,
+ * 1  built-in found but not successful,
+ * 2  built-in signals exit()
  */
 int find_builtin(info_t *info)
 {
-	int i, built_in_ret = -1;
+	int k, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
 		{"env", _myenv},
@@ -67,26 +67,26 @@ int find_builtin(info_t *info)
 		{NULL, NULL}
 	};
 
-	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+	for (k = 0; builtintbl[k].type; k++)
+		if (_strcmp(info->argv[0], builtintbl[k].type) == 0)
 		{
 			info->line_count++;
-			built_in_ret = builtintbl[i].func(info);
+			built_in_ret = builtintbl[k].func(info);
 			break;
 		}
 	return (built_in_ret);
 }
 
 /**
- * find_cmd - locates a cmd in PATH
- * @info:  parameter & return info struct
+ * find_cmd - locates a cmd in PTH
+ * @info:  para-meter and return detail struct
  *
- * Return:returns void
+ * Return:null
  */
 void find_cmd(info_t *info)
 {
 	char *path = NULL;
-	int i, k;
+	int k, f;
 
 	info->path = info->argv[0];
 	if (info->linecount_flag == 1)
@@ -94,10 +94,10 @@ void find_cmd(info_t *info)
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
-	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
-			k++;
-	if (!k)
+	for (k = 0, f = 0; info->arg[k]; k++)
+		if (!is_delim(info->arg[k], " \t\n"))
+			f++;
+	if (!f)
 		return;
 
 	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
@@ -120,10 +120,10 @@ void find_cmd(info_t *info)
 }
 
 /**
- * fork_cmd - the forks a an exec thread to run command
- * @info: parameter & return info struct
+ * fork_cmd - foks a a Exec Thread to execute command
+ * @info: para-meter & return details struct
  *
- * Return:returns void
+ * Return:null
  */
 void fork_cmd(info_t *info)
 {
