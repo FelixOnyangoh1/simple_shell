@@ -46,7 +46,7 @@ void set_info(info_t *info, char **av)
 /**
  * free_info -this free info_t struct fields
  * @info:the struct addr
- * @all:T if freeing fields-all 
+ * @all:T if freeing fields-all
  */
 void free_info(info_t *info, int all)
 {

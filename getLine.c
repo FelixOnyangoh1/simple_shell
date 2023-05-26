@@ -55,7 +55,7 @@ ssize_t get_input(info_t *info)
 	static char *buf; /* the ';' command chain buffer */
 	static size_t i, j, len;
 	ssize_t a = 0;
-	char **buf_y = &(info->arg), *p;
+	char **buf_p = &(info->arg), *p;
 
 	_putchar(BUF_FLUSH);
 	a = input_buf(info, &buf, &len);
@@ -64,7 +64,7 @@ ssize_t get_input(info_t *info)
 	if (len) /* have cmds left in the chain buffer */
 	{
 		j = i; /* init new iterator to current buf position */
-		y = buf + i; /* get pointer for return */
+		p = buf + i; /* get pointer for return */
 
 		check_chain(info, buf, &j, i, len);
 		while (j < len) /* iterate to semicolon or end */

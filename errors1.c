@@ -13,7 +13,7 @@ int _erratoi(char *s)
 
 	if (*s == '+')
 		s++;  /* TODO: why does this make main return 255? */
-	for (i = 0;  s[i] != '\0'; k++)
+	for (k = 0;  s[k] != '\0'; k++)
 	{
 		if (s[k] >= '0' && s[k] <= '9')
 		{
@@ -70,7 +70,7 @@ int print_d(int input, int fd)
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (i = 1000000000; k > 1; k /= 10)
+	for (k = 1000000000; k > 1; k /= 10)
 	{
 		if (_abs_ / k)
 		{
@@ -132,7 +132,7 @@ void remove_comments(char *buf)
 	int k;
 
 	for (k = 0; buf[k] != '\0'; k++)
-		if (buf[i] == '#' && (!k || buf[k - 1] == ' '))
+		if (buf[k] == '#' && (!k || buf[k - 1] == ' '))
 		{
 			buf[k] = '\0';
 			break;

@@ -37,7 +37,7 @@ char *dup_chars(char *pathstr, int start, int stop)
 
 	for (z = 0, y = start; y < stop; y++)
 		if (pathstr[y] != ':')
-			buf[z++] = pathstr[i];
+			buf[z++] = pathstr[y];
 	buf[z] = 0;
 	return (buf);
 }
@@ -64,7 +64,7 @@ char *find_path(info_t *info, char *pathstr, char *cmd)
 	}
 	while (1)
 	{
-		if (!pathstr[i] || pathstr[i] == ':')
+		if (!pathstr[n] || pathstr[n] == ':')
 		{
 			path = dup_chars(pathstr, curr_pos, n);
 			if (!*path)

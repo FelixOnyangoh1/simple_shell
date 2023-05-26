@@ -60,7 +60,7 @@ char *_strncat(char *dest, char *src, int n)
 /**
  **_strchr -identifies a char in a str
  *@s:  str to parse
- *@c:  char to look 
+ *@c:  char to look
  *Return: returns (s) a ptr to the mem area s
  */
 char *_strchr(char *s, char c)
