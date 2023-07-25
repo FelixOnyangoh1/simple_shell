@@ -8,7 +8,7 @@
  *
  * Return:  sizze of listt
  */
-list_t *add_node(list_l **head, const char *str, int num)
+list_t *add_node(list_t **head, const char *str, int num)
 {
 	list_l *new_head;
 
@@ -41,7 +41,7 @@ list_t *add_node(list_l **head, const char *str, int num)
  *
  * Return: sizze of the listt
  */
-list_t *add_node_end(list_l **head, const char *str, int num)
+list_t *add_node_end(list_t **head, const char *str, int num)
 {
 	list_l *new_node, *node;
 
@@ -80,7 +80,7 @@ list_t *add_node_end(list_l **head, const char *str, int num)
  *
  * Return: sizze of the listt
  */
-size_t print_list_str(const list_l *h)
+size_t print_list_str(const list_t *h)
 {
 	size_t k = 0;
 
@@ -101,7 +101,7 @@ size_t print_list_str(const list_l *h)
  *
  * Return: 1 onn successs, 0 onn faillure.
  */
-int delete_node_at_index(list_l **head, unsigned int index)
+int delete_node_at_index(list_t **head, unsigned int index)
 {
 	list_l *node, *prev_node;
 	unsigned int k = 0;
@@ -140,7 +140,7 @@ int delete_node_at_index(list_l **head, unsigned int index)
  *
  * Return:  null
  */
-void free_list(list_l **head_ptr)
+void free_list(list_t **head_ptr)
 {
 	list_l *node, *next_node, *head;
 

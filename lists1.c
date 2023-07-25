@@ -6,13 +6,13 @@
  *
  * Return: sizze of listt.
  */
-size_t list_len(const list_l *h)
+size_t list_len(const list_t *h)
 {
 	size_t k = 0;
 
-	while (q)
+	while (h)
 	{
-		q = q->next;
+		h = h->next;
 		k++;
 	}
 	return (k);
@@ -24,7 +24,7 @@ size_t list_len(const list_l *h)
  *
  * Return: arr of str.
  */
-char **list_to_strings(list_l *head)
+char **list_to_strings(list_t *head)
 {
 	list_l *node = head;
 	size_t k = list_len(head), j;
@@ -70,7 +70,7 @@ size_t print_list(const list_t *q)
 		_puts(convert_number(q->num, 10, 0));
 		_putchar(':');
 		_putchar(' ');
-		_puts(h->str ? q->str : "(nil)");
+		_puts(k->str ? q->str : "(nil)");
 		_puts("\n");
 		q = q->next;
 		k++;
@@ -86,7 +86,7 @@ size_t print_list(const list_t *q)
  *
  * Return:  mach nodde or void
  */
-list_l *node_starts_with(list_l *node, char *prefix, char c)
+list_t *node_starts_with(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 
@@ -107,7 +107,7 @@ list_l *node_starts_with(list_l *node, char *prefix, char c)
  *
  * Return:  indexx of nodde orr -1
  */
-ssize_t get_node_index(list_t *head, list_l *node)
+ssize_t get_node_index(list_t *head, list_t *node)
 {
 	size_t k = 0;
 
