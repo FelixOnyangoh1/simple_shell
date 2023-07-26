@@ -47,14 +47,14 @@ int is_chain(info_t *info, char *buf, size_t *p)
  */
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
-	size_t i = *p;
+	size_t j = *p;
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 		if (info->status)
 		{
 			buf[i] = 0;
-			i = len;
+			j = len;
 		}
 	}
 	if (info->cmd_buf_type == CMD_OR)
@@ -62,11 +62,11 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		if (!info->status)
 		{
 			buf[i] = 0;
-			i = len;
+			j = len;
 		}
 	}
 
-	*p = i;
+	*p = j;
 }
 
 /**
@@ -114,13 +114,13 @@ int replace_vars(info_t *info)
 		if (info->argv[k][0] != '$' || !info->argv[k][1])
 			continue;
 
-		if (!_strcmp(info->argv[i], "$?"))
+		if (!_strcmp(info->argv[k], "$?"))
 		{
-			replace_string(&(info->argv[i]),
+			replace_string(&(info->argv[k]),
 					_strdup(convert_number(info->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[i], "$$"))
+		if (!_strcmp(info->argv[k], "$$"))
 		{
 			replace_string(&(info->argv[k]),
 					_strdup(convert_number(getpid(), 10, 0)));
@@ -133,7 +133,7 @@ int replace_vars(info_t *info)
 					_strdup(_strchr(node->str, '=') + 1));
 			continue;
 		}
-		replace_string(&info->argv[i], _strdup(""));
+		replace_string(&info->argv[k], _strdup(""));
 
 	}
 	return (0);
